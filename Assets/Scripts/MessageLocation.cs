@@ -1,4 +1,6 @@
+using Mapbox.Unity.Location;
 using Mapbox.Unity.Utilities;
+using Mapbox.Utils;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,8 +19,38 @@ public class MessageLocation : MonoBehaviour {
     private TouchScreenKeyboard _keyboard = null;
     private CameraController _camController;
 
-	void Start ()
+    //---INIT TEST---
+
+    private ILocationProvider _locationProvider;
+    Vector2d _targetPosition;
+
+    void OnDestroy()
     {
+        if (_locationProvider != null)
+        {
+            _locationProvider.OnLocationUpdated -= LocationProvider_OnLocationUpdated;
+        }
+    }
+
+
+    void LocationProvider_OnLocationUpdated(Location location)
+    {
+        _targetPosition = location.LatitudeLongitude;
+    }
+    //---END TEST----
+
+    void Start ()
+    {
+        //---INIT TEST---
+
+        _locationProvider = LocationProviderFactory.Instance.DefaultLocationProvider;
+        if (_locationProvider != null)
+        {
+            _locationProvider.OnLocationUpdated += LocationProvider_OnLocationUpdated;
+        }
+
+        //---END TEST----
+
         isEditing = false;
 
         //Fetch the Raycaster from the GameObject (the Canvas)
@@ -34,34 +66,11 @@ public class MessageLocation : MonoBehaviour {
     {
         transform.LookAt(_camera.transform);
 
-        ////Check if the left Mouse button is clicked
-        //if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began && APPManager.Instance.CurrStatus != StatusAPP.EditObjectLocation)
-        //{
+        //---INIT TEST---
+        string location = "Latitud: " + _targetPosition.x +"; Longitud: " + _targetPosition.y;
+        setDescription(location);
 
-        //    //Set up the new Pointer Event
-        //    m_PointerEventData = new PointerEventData(m_EventSystem);
-        //    //Set the Pointer Event Position to that of the mouse position
-        //    m_PointerEventData.position = Input.GetTouch(0).position;
-
-        //    //Create a list of Raycast Results
-        //    List<RaycastResult> results = new List<RaycastResult>();
-
-        //    //Raycast using the Graphics Raycaster and mouse click position
-        //    m_Raycaster.Raycast(m_PointerEventData, results);
-
-        //    //For every result returned, output the name of the GameObject on the Canvas hit by the Ray
-        //    foreach (RaycastResult result in results)
-        //    {
-        //        APPManager.Instance.CurrStatus = StatusAPP.EditObjectLocation;
-        //        isEditing = true;
-        //        _keyboard = TouchScreenKeyboard.Open("", TouchScreenKeyboardType.Default);
-        //    }
-        //}
-        //if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began && APPManager.Instance.CurrStatus != StatusAPP.EditObjectLocation 
-        //    && _camController.IsHitARObject)
-        //{
-        //    edit();
-        //}
+        //---END TEST----
 
         if (isEditing && _keyboard != null)
         {
