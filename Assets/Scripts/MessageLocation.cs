@@ -7,13 +7,13 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class MessageLocation : MonoBehaviour {
+public class MessageLocation : ARObject {
 
     GraphicRaycaster m_Raycaster;
     PointerEventData m_PointerEventData;
     EventSystem m_EventSystem;
 
-    public Text description;
+    public Text description, latitud, longitud;
     private Camera _camera;
     private bool isEditing;
     private TouchScreenKeyboard _keyboard = null;
@@ -21,35 +21,41 @@ public class MessageLocation : MonoBehaviour {
 
     //---INIT TEST---
 
-    private ILocationProvider _locationProvider;
-    Vector2d _targetPosition;
+    //private ILocationProvider _locationProvider;
+    //Vector2d _targetPosition;
 
-    void OnDestroy()
-    {
-        if (_locationProvider != null)
-        {
-            _locationProvider.OnLocationUpdated -= LocationProvider_OnLocationUpdated;
-        }
-    }
+    //void OnDestroy()
+    //{
+    //    if (_locationProvider != null)
+    //    {
+    //        _locationProvider.OnLocationUpdated -= LocationProvider_OnLocationUpdated;
+    //    }
+    //}
 
 
-    void LocationProvider_OnLocationUpdated(Location location)
-    {
-        _targetPosition = location.LatitudeLongitude;
-    }
+    //void LocationProvider_OnLocationUpdated(Location location)
+    //{
+    //    _targetPosition = location.LatitudeLongitude;
+    //}
     //---END TEST----
 
-    void Start ()
+    //public MessageLocation(int id, double lat, double longit, string message) :base(id, lat, longit, message)
+    //{
+
+    //}
+
+    protected override void Start ()
     {
         //---INIT TEST---
 
-        _locationProvider = LocationProviderFactory.Instance.DefaultLocationProvider;
-        if (_locationProvider != null)
-        {
-            _locationProvider.OnLocationUpdated += LocationProvider_OnLocationUpdated;
-        }
+        //_locationProvider = LocationProviderFactory.Instance.DefaultLocationProvider;
+        //if (_locationProvider != null)
+        //{
+        //    _locationProvider.OnLocationUpdated += LocationProvider_OnLocationUpdated;
+        //}
 
         //---END TEST----
+        base.Start();
 
         isEditing = false;
 
@@ -61,14 +67,16 @@ public class MessageLocation : MonoBehaviour {
         _camera = Camera.main;
         _camController = FindObjectOfType<CameraController>();
     }
-	
-	void Update ()
+
+    protected override void Update ()
     {
+        base.Update();
+
         transform.LookAt(_camera.transform);
 
         //---INIT TEST---
-        string location = "Latitud: " + _targetPosition.x +"; Longitud: " + _targetPosition.y;
-        setDescription(location);
+        //string location = "Latitud: " + _targetPosition.x +"; Longitud: " + _targetPosition.y;
+        //setDescription(location);
 
         //---END TEST----
 

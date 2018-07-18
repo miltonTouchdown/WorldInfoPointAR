@@ -166,8 +166,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8ae1f09b6fef6f45991d2b0942f98e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isDataDump: 1
+  lstARObject: []
   prefabMessage: {fileID: 1852703506207326, guid: b81f495e84198f54dafcdf5b6c6e7531,
     type: 2}
+  _map: {fileID: 1303514559}
 --- !u!1 &502784262 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1254073262689706, guid: 35e76f6e52f5c4252a0b703cc2019a37,
@@ -185,6 +188,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxRayDistance: 30
+--- !u!114 &1303514559 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114673356928061534, guid: 35e76f6e52f5c4252a0b703cc2019a37,
+    type: 2}
+  m_PrefabInternal: {fileID: 1538709649}
+  m_Script: {fileID: 11500000, guid: cd961b1c9541a4cee99686069ecce852, type: 3}
 --- !u!1 &1335367199
 GameObject:
   m_ObjectHideFlags: 0
@@ -232,6 +241,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114673356928061534, guid: 35e76f6e52f5c4252a0b703cc2019a37,
+        type: 2}
+      propertyPath: _vectorData._layerProperty.tileJsonData.LayerDisplayNames.Array.size
+      value: 22
+      objectReference: {fileID: 0}
     - target: {fileID: 4398838867240558, guid: 35e76f6e52f5c4252a0b703cc2019a37, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -422,6 +436,130 @@ Prefab:
         type: 2}
       propertyPath: m_AnchoredPosition.y
       value: -506.87994
+      objectReference: {fileID: 0}
+    - target: {fileID: 1060856044390064, guid: 35e76f6e52f5c4252a0b703cc2019a37, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114673356928061534, guid: 35e76f6e52f5c4252a0b703cc2019a37,
+        type: 2}
+      propertyPath: _terrain._layerProperty.unityLayerOptions.addToLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114673356928061534, guid: 35e76f6e52f5c4252a0b703cc2019a37,
+        type: 2}
+      propertyPath: _vectorData._layerProperty.tileJsonData.LayerDisplayNames.Array.data[0]
+      value: admin
+      objectReference: {fileID: 0}
+    - target: {fileID: 114673356928061534, guid: 35e76f6e52f5c4252a0b703cc2019a37,
+        type: 2}
+      propertyPath: _vectorData._layerProperty.tileJsonData.LayerDisplayNames.Array.data[1]
+      value: aeroway
+      objectReference: {fileID: 0}
+    - target: {fileID: 114673356928061534, guid: 35e76f6e52f5c4252a0b703cc2019a37,
+        type: 2}
+      propertyPath: _vectorData._layerProperty.tileJsonData.LayerDisplayNames.Array.data[2]
+      value: airport_label
+      objectReference: {fileID: 0}
+    - target: {fileID: 114673356928061534, guid: 35e76f6e52f5c4252a0b703cc2019a37,
+        type: 2}
+      propertyPath: _vectorData._layerProperty.tileJsonData.LayerDisplayNames.Array.data[3]
+      value: barrier_line
+      objectReference: {fileID: 0}
+    - target: {fileID: 114673356928061534, guid: 35e76f6e52f5c4252a0b703cc2019a37,
+        type: 2}
+      propertyPath: _vectorData._layerProperty.tileJsonData.LayerDisplayNames.Array.data[4]
+      value: building
+      objectReference: {fileID: 0}
+    - target: {fileID: 114673356928061534, guid: 35e76f6e52f5c4252a0b703cc2019a37,
+        type: 2}
+      propertyPath: _vectorData._layerProperty.tileJsonData.LayerDisplayNames.Array.data[5]
+      value: country_label
+      objectReference: {fileID: 0}
+    - target: {fileID: 114673356928061534, guid: 35e76f6e52f5c4252a0b703cc2019a37,
+        type: 2}
+      propertyPath: _vectorData._layerProperty.tileJsonData.LayerDisplayNames.Array.data[6]
+      value: housenum_label
+      objectReference: {fileID: 0}
+    - target: {fileID: 114673356928061534, guid: 35e76f6e52f5c4252a0b703cc2019a37,
+        type: 2}
+      propertyPath: _vectorData._layerProperty.tileJsonData.LayerDisplayNames.Array.data[7]
+      value: landuse
+      objectReference: {fileID: 0}
+    - target: {fileID: 114673356928061534, guid: 35e76f6e52f5c4252a0b703cc2019a37,
+        type: 2}
+      propertyPath: _vectorData._layerProperty.tileJsonData.LayerDisplayNames.Array.data[8]
+      value: landuse_overlay
+      objectReference: {fileID: 0}
+    - target: {fileID: 114673356928061534, guid: 35e76f6e52f5c4252a0b703cc2019a37,
+        type: 2}
+      propertyPath: _vectorData._layerProperty.tileJsonData.LayerDisplayNames.Array.data[9]
+      value: marine_label
+      objectReference: {fileID: 0}
+    - target: {fileID: 114673356928061534, guid: 35e76f6e52f5c4252a0b703cc2019a37,
+        type: 2}
+      propertyPath: _vectorData._layerProperty.tileJsonData.LayerDisplayNames.Array.data[10]
+      value: motorway_junction
+      objectReference: {fileID: 0}
+    - target: {fileID: 114673356928061534, guid: 35e76f6e52f5c4252a0b703cc2019a37,
+        type: 2}
+      propertyPath: _vectorData._layerProperty.tileJsonData.LayerDisplayNames.Array.data[11]
+      value: mountain_peak_label
+      objectReference: {fileID: 0}
+    - target: {fileID: 114673356928061534, guid: 35e76f6e52f5c4252a0b703cc2019a37,
+        type: 2}
+      propertyPath: _vectorData._layerProperty.tileJsonData.LayerDisplayNames.Array.data[12]
+      value: place_label
+      objectReference: {fileID: 0}
+    - target: {fileID: 114673356928061534, guid: 35e76f6e52f5c4252a0b703cc2019a37,
+        type: 2}
+      propertyPath: _vectorData._layerProperty.tileJsonData.LayerDisplayNames.Array.data[13]
+      value: poi_label
+      objectReference: {fileID: 0}
+    - target: {fileID: 114673356928061534, guid: 35e76f6e52f5c4252a0b703cc2019a37,
+        type: 2}
+      propertyPath: _vectorData._layerProperty.tileJsonData.LayerDisplayNames.Array.data[14]
+      value: rail_station_label
+      objectReference: {fileID: 0}
+    - target: {fileID: 114673356928061534, guid: 35e76f6e52f5c4252a0b703cc2019a37,
+        type: 2}
+      propertyPath: _vectorData._layerProperty.tileJsonData.LayerDisplayNames.Array.data[15]
+      value: road
+      objectReference: {fileID: 0}
+    - target: {fileID: 114673356928061534, guid: 35e76f6e52f5c4252a0b703cc2019a37,
+        type: 2}
+      propertyPath: _vectorData._layerProperty.tileJsonData.LayerDisplayNames.Array.data[16]
+      value: road_label
+      objectReference: {fileID: 0}
+    - target: {fileID: 114673356928061534, guid: 35e76f6e52f5c4252a0b703cc2019a37,
+        type: 2}
+      propertyPath: _vectorData._layerProperty.tileJsonData.LayerDisplayNames.Array.data[17]
+      value: state_label
+      objectReference: {fileID: 0}
+    - target: {fileID: 114673356928061534, guid: 35e76f6e52f5c4252a0b703cc2019a37,
+        type: 2}
+      propertyPath: _vectorData._layerProperty.tileJsonData.LayerDisplayNames.Array.data[18]
+      value: water
+      objectReference: {fileID: 0}
+    - target: {fileID: 114673356928061534, guid: 35e76f6e52f5c4252a0b703cc2019a37,
+        type: 2}
+      propertyPath: _vectorData._layerProperty.tileJsonData.LayerDisplayNames.Array.data[19]
+      value: water_label
+      objectReference: {fileID: 0}
+    - target: {fileID: 114673356928061534, guid: 35e76f6e52f5c4252a0b703cc2019a37,
+        type: 2}
+      propertyPath: _vectorData._layerProperty.tileJsonData.LayerDisplayNames.Array.data[20]
+      value: waterway
+      objectReference: {fileID: 0}
+    - target: {fileID: 114673356928061534, guid: 35e76f6e52f5c4252a0b703cc2019a37,
+        type: 2}
+      propertyPath: _vectorData._layerProperty.tileJsonData.LayerDisplayNames.Array.data[21]
+      value: waterway_label
+      objectReference: {fileID: 0}
+    - target: {fileID: 114673356928061534, guid: 35e76f6e52f5c4252a0b703cc2019a37,
+        type: 2}
+      propertyPath: _vectorData._layerProperty.vectorSubLayers.Array.data[0].coreOptions.isActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 35e76f6e52f5c4252a0b703cc2019a37, type: 2}

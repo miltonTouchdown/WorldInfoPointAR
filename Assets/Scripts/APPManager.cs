@@ -76,6 +76,7 @@ public class APPManager : MonoBehaviour {
                 }
         }
     }
+
 }
 
 public enum StatusAPP {Init, EditObjectLocation, CreateObjectLocation}
