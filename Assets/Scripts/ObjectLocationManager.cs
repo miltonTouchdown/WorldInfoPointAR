@@ -72,8 +72,9 @@ public class ObjectLocationManager : MonoBehaviour {
         }
 
         _map.OnInitialized += () => _isInitialized = true;
+        _map.OnInitialized += LoadARObject;
 
-        LoadARObject();
+        //LoadARObject();
         _ARFocus = GameObject.FindObjectOfType<ARFocusSquare>();
     }
 
@@ -114,12 +115,29 @@ public class ObjectLocationManager : MonoBehaviour {
         MessageLocation messLoc = ArObject.GetComponent<MessageLocation>();
         messLoc.Lat = lat;
         messLoc.Long = longi;
-        Debug.Log("ar object: " + messLoc.name);
-        Debug.Log("long: " + longi);
-        Debug.Log("lat: " + lat);
+        messLoc.Message = "Escribir descripcion...";
 
         messLoc.latitud.text = messLoc.Lat.ToString();
         messLoc.longitud.text = messLoc.Long.ToString();
+        messLoc.setDescription(messLoc.Message);
+        
+        // Agregar a la lista
+        ARObject baseClassAR = (ARObject)messLoc;
+        addToList(messLoc);
+    }
+
+    private void addToList(ARObject arObject)
+    {
+        if (APPManager.Instance.CurrStatus == StatusAPP.Init)
+            return;
+
+        ARObjectData data = new ARObjectData();
+        data.Id = 0;
+        data.Lat = arObject.Lat;
+        data.Long = arObject.Long;
+        data.Message = arObject.Message;
+
+        lstARObject.Add(data);
     }
 
     public void LoadARObject()
@@ -131,11 +149,12 @@ public class ObjectLocationManager : MonoBehaviour {
         else
             Instance.lstARObject = DataManager.Load().ToList();
 
-        if(Instance.lstARObject.Count > 0)
+        foreach (ARObjectData item in Instance.lstARObject)
         {
-            //createInterestPoint();
-            return;
+            createInterestPoint(item);
         }
+
+        APPManager.Instance.CurrStatus = StatusAPP.CreateObjectLocation;
     }
 
     public void UpdateAROBject(ARObjectData arObject)
@@ -178,13 +197,15 @@ public class ObjectLocationManager : MonoBehaviour {
         Instance.lstARObject.Add(arObj_3);
         //Instance.lstARObject.Add(arObj_0);
 
-        yield return new WaitForSeconds(4f);
+        yield return new WaitForSeconds(.5f);
 
         foreach (ARObjectData item in Instance.lstARObject)
         {
             Debug.Log("item: " + item);
             createInterestPoint(item);
         }
+
+        APPManager.Instance.CurrStatus = StatusAPP.CreateObjectLocation;
     }
 
     /***END TEST***/

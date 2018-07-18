@@ -72,8 +72,5 @@ public abstract class ARObject : MonoBehaviour
         latitudLongitude = new Vector2d(Lat, Long);
         _targetPosition = _map.GeoToWorldPosition(latitudLongitude);
         transform.localPosition = _targetPosition;
-        //Debug.Log("object: " + this.name);
-        //Debug.Log("lat: " + Lat);
-        //Debug.Log("long: " + Long);
     }
 }

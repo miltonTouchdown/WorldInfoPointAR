@@ -47,7 +47,7 @@ public class APPManager : MonoBehaviour {
 
     void Start ()
     {
-        Instance.CurrStatus = StatusAPP.CreateObjectLocation;
+        Instance.CurrStatus = StatusAPP.Init;
 	}
 	
 	void Update ()
@@ -61,7 +61,6 @@ public class APPManager : MonoBehaviour {
         {
             case StatusAPP.Init:
                 {
-                    Instance.CurrStatus = StatusAPP.CreateObjectLocation;
                     Debug.Log(CurrStatus);
                     break;
                 }
@@ -75,6 +74,11 @@ public class APPManager : MonoBehaviour {
                     break;
                 }
         }
+    }
+
+    public void saveData()
+    {
+        DataManager.Save(ObjectLocationManager.Instance.lstARObject);
     }
 
 }

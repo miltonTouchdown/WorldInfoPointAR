@@ -101,5 +101,6 @@ public class MessageLocation : ARObject {
     public void setDescription(string message)
     {
         description.text = message;
+        this.Message = message;
     }
 }
